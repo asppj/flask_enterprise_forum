@@ -1,0 +1,69 @@
+{#flash 四种警告：#}
+{# "success" ：成功#}
+{# "info"  : 提示#}
+{# "warning": 警告#}
+{# "error" :错误#}
+
+{% with successes = get_flashed_messages(category_filter=["success"]) %}
+{% if successes %}
+<div class="alert alert-success alert-dismissable" style="margin: 0px;padding: 0px;">
+    <button type="button" class="close" data-dismiss="alert"
+            aria-hidden="true">
+        &times;
+    </button>
+    <ol>
+        {% for success in successes %}
+        <li>{{ success }}</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+{% endwith %}
+
+{% with infoes = get_flashed_messages(category_filter=['info']) %}
+{% if infoes %}
+<div class="alert alert-info alert-dismissable" style="margin: 0px;padding: 0px;">
+    <button type="button" class="close" data-dismiss="alert"
+            aria-hidden="true">
+        &times;
+    </button>
+    <ol>
+        {% for info in infoes %}
+        <li>{{ info }}</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+{% endwith %}
+
+{% with warnings = get_flashed_messages(category_filter=['warning']) %}
+{% if warnings %}
+<div class="alert alert-warning alert-dismissable" style="margin: 0px;padding: 0px;">
+    <button type="button" class="close" data-dismiss="alert"
+            aria-hidden="true">
+        &times;
+    </button>
+    <ol>
+        {% for warning in warnings %}
+        <li>{{ warning }}</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+{% endwith %}
+
+{% with dangers = get_flashed_messages(category_filter=['error']) %}
+{% if dangers %}
+<div class="alert alert-danger alert-dismissable" style="margin: 0px;padding: 0px;">
+    <button type="button" class="close" data-dismiss="alert"
+            aria-hidden="true">
+        &times;
+    </button>
+    <ol>
+        {% for danger in dangers %}
+        <li>{{ danger }}</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+{% endwith %}

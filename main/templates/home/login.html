@@ -1,0 +1,13 @@
+{% extends 'home/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block page_content %}
+<div class="col-md-4">
+    <fieldset>
+        <legend>
+            登录入口
+        </legend>
+        {{ wtf.quick_form(form) }}
+    </fieldset>
+</div>
+
+{% endblock %}
